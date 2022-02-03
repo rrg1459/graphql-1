@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @diccionario.nombre %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @diccionario.tipo %>
+</p>
+
+<p>
+  <strong>Abreviacion:</strong>
+  <%= @diccionario.abreviacion %>
+</p>
+
+<p>
+  <strong>Definicion:</strong>
+  <%= @diccionario.definicion %>
+</p>
+
+<%= link_to 'Edit', edit_diccionario_path(@diccionario) %> |
+<%= link_to 'Back', diccionarios_path %>

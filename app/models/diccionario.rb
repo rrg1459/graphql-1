@@ -1,0 +1,2 @@
+class Diccionario < ApplicationRecord
+end
