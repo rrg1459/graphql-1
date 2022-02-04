@@ -1,0 +1,26 @@
+<h1>Analiza texto</h1>
+
+<p id="notice"><%= @notice %></p>
+
+<%= form_tag("/procesa", :method => "post") do %>
+  </h3>
+  <h3>
+  <%= label_tag(:text, "Pega un texto para analizar entre 1.000 y 10.000 palabras:") %>
+  <%= text_area_tag :text, @text, :size => "100x30" %>
+  <br><br><br>
+  <%= submit_tag("Analiza") %>
+<% end %>
+
+<% if @count_words > 0 %>
+  <h3><%= "El texto limpio contiene #{@count_words} palabras" %></h3>
+<% end %>
+<% $text = @text %>
+<% if @count_words.between?(1000, 10000) %>
+  <h4>
+  </h4>
+  <%= form_tag("/update", :method => "get") do %>
+    <%= hidden_field_tag :count_words, @count_words %>
+    <%= submit_tag("Carga promedios") %>
+  <% end %>
+
+<% end %>

@@ -1,0 +1,27 @@
+<h1>Resultados del análisis</h1>
+<br>
+<p id="notice"><%= @notice %></p>
+<br>
+
+<% $words = @words %>
+<%= link_to 'Analyze another text', analiza_lee_path %>
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>Word</th>
+      <th>Amount</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @words.each do |word| %>
+      <tr>
+        <td><%= word.first %></td>
+        <td><%= word.last %></td>
+        <td><%= link_to 'Add', manage_words_path(:word => word.join(' '), :act => true) %></td>
+        <td><%= link_to 'Ignore', manage_words_path(:word => word.join(' '), :act => false) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

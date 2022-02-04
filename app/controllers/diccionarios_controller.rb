@@ -3,7 +3,10 @@ class DiccionariosController < ApplicationController
 
   # GET /diccionarios or /diccionarios.json
   def index
-    @diccionarios = Diccionario.where.not(definicion: [nil,"", "No existe en la RAE"]).paginate(page: params[:page])
+    @leidos    = Diccionario.where.not(definicion: [nil,"", "No existe en la RAE"])
+    @diccionarios = @leidos.paginate(page: params[:page])
+    @sin_definicion = Diccionario.where(definicion: '').size
+    @no_existe = Diccionario.where(definicion: "No existe en la RAE").size
   end
 
   # GET /diccionarios/1 or /diccionarios/1.json

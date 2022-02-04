@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  resources :diccionarios
 
   root 'diccionarios#index'
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :diccionarios
+
+  get 'analiza/lee'
+  post '/procesa', to: 'analiza#procesa'
+  get '/update', to: 'analiza#update'
+  get '/manage_words', to: 'analiza#manage'
+
 end
