@@ -2,6 +2,8 @@
 
 <h1>Diccionarios</h1>
 <br>
+<%= button_to "Play game", play_path, method: :get %>
+
 <h3>Leidos y con definicion: <%= @leidos.size %></h3>
 <h3>Leidos y sin definicion: <%= @sin_definicion %></h3>
 <h3>No existe en la RAE: <%= @no_existe %></h3>
