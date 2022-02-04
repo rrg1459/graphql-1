@@ -5,7 +5,6 @@
 <h3>Leidos y con definicion: <%= @leidos.size %></h3>
 <h3>Leidos y sin definicion: <%= @sin_definicion %></h3>
 <h3>No existe en la RAE: <%= @no_existe %></h3>
-<br>
 
 <table>
   <thead>
@@ -33,4 +32,6 @@
 
 <br>
 
-<%= link_to 'New Diccionario', new_diccionario_path %>
+<%= button_to "Analyze text", analiza_lee_path, method: :get %>
+<br>
+<%= button_to "New Dictionary", new_diccionario_path, method: :get %>

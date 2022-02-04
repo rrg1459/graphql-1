@@ -8,8 +8,11 @@
   <%= label_tag(:text, "Pega un texto para analizar entre 1.000 y 10.000 palabras:") %>
   <%= text_area_tag :text, @text, :size => "100x30" %>
   <br><br><br>
-  <%= submit_tag("Analiza") %>
+  <%= submit_tag("Analyze") %>
 <% end %>
+
+<br>
+<br><%= button_to "Go to dictionary", diccionarios_path, method: :get %>
 
 <% if @count_words > 0 %>
   <h3><%= "El texto limpio contiene #{@count_words} palabras" %></h3>

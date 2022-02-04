@@ -4,7 +4,8 @@
 <br>
 
 <% $words = @words %>
-<%= link_to 'Analyze another text', analiza_lee_path %>
+<%= button_to "Analyze another text", analiza_lee_path, method: :get %>
+
 <br>
 <table>
   <thead>
@@ -25,3 +26,5 @@
     <% end %>
   </tbody>
 </table>
+
+<br><%= button_to "Go to dictionary", diccionarios_path, method: :get %>
