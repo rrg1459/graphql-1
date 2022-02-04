@@ -26,7 +26,8 @@ task :carga => :environment do
 
   contador = 0
 
-  palabras = Diccionario.where(definicion: nil).sample(1000)
+  # palabras = Diccionario.where(definicion: nil).sample(100)
+  palabras = Diccionario.where(definicion: nil).where.not(promedio: nil).order(promedio: :desc).sample(100)
 
   palabras.each do |palabra|
 
