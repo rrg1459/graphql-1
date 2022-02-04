@@ -5,9 +5,11 @@ class AnalizaController < ApplicationController
   end
 
   def procesa
-    @text = params[:text]
-    @text = @text.gsub(/[^abcdefghijklmnñopqrstuvwxyzáéíóúABCDEFGHIJKLMNÑOPQRSTUVWXYZ ]/, ' ').squish.downcase
-    @count_words = @text.split.size ##3 contador de palabras
+    text  = params[:text]
+    text  = text.gsub(/[^abcdefghijklmnñopqrstuvwxyzáéíóúABCDEFGHIJKLMNÑOPQRSTUVWXYZ ]/, ' ').squish.downcase
+    text  = text.split
+    @text = text.select{|x| x.size > 2}.join(' ')
+    @count_words = @text.split.size ### contador de palabras
     if @count_words == 0
       @notice = 'Debe escribir un texto de por los menos 1.000 palabras'
     elsif not @count_words.between?(1000, 10000)
