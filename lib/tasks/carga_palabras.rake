@@ -16,18 +16,23 @@ task :carga => :environment do
   p_faltan = 100 - p_cargados
 
   faltan = todos - cargados
+ 
+  leidos         = Diccionario.where.not(definicion: [nil,"", "No existe en la RAE"]).size
+  sin_definicion = Diccionario.where(definicion: '').size
+  no_existe      = Diccionario.where(definicion: "No existe en la RAE").size
 
   puts "Cargados: #{cargados}  -  #{p_cargados}%"
   puts "Faltan: #{faltan}  -  #{p_faltan}%"
-
-  print "\npulse una tecla para continuar..."
-
-  byebug
+  puts
+  puts "Leidos y con definicion: #{leidos}"
+  puts "Leidos y sin definicion: #{sin_definicion}"
+  puts "No existen en la RAE   : #{no_existe}"
+  puts 
 
   contador = 0
 
   # palabras = Diccionario.where(definicion: nil).sample(100)
-  palabras = Diccionario.where(definicion: nil).where.not(promedio: nil).order(promedio: :desc).sample(100)
+  palabras = Diccionario.where(definicion: nil).where.not(promedio: nil).order(promedio: :desc).first(100)
 
   palabras.each do |palabra|
 
@@ -65,12 +70,22 @@ task :carga => :environment do
     end
 
     palabra.save
-    puts "\n#{contador}.- #{palabra.nombre}: #{palabra.definicion}"
+    puts "\n#{contador}.- #{palabra.nombre.capitalize}(#{palabra.promedio/100.0}%): #{palabra.definicion}\n"
     sleep(rand(5..10))
 
   end
 
+  leidos         = Diccionario.where.not(definicion: [nil,"", "No existe en la RAE"]).size
+  sin_definicion = Diccionario.where(definicion: '').size
+  no_existe      = Diccionario.where(definicion: "No existe en la RAE").size
+
+  puts
+  puts "Leidos y con definicion: #{leidos}"
+  puts "Leidos y sin definicion: #{sin_definicion}"
+  puts "No existen en la RAE   : #{no_existe}"
+  puts
   puts "Hora inicial: #{inicio}"
   puts "Hora final: #{Time.now}"
+  puts
 
 end
