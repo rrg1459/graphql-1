@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+
+.hide-definition {
+  color: blue;
+  display: none;
+} 

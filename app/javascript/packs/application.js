@@ -11,3 +11,18 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+//-------------------------------------------------------//
+
+import $ from 'jquery';
+global.$ = jQuery;
+
+//-------------------------------------------------------//
+
+$(document).ready(function () {
+
+  $("#answer").click(function () {
+    $(".hide-definition").fadeIn();
+  });
+
+});

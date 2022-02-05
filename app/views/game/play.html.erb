@@ -1,7 +1,16 @@
 <h1>Game#play</h1>
 <p>Find me in app/views/game/play.html.erb</p>
 
+<h2>
+<%= @word.nombre %>
+<%= @word.largo %>
+</h2>
+<center>
+  <h2><%= @spell_word %></h2>
+  <h2><%= @array_word %></h2>
 
+  <button id="answer" type="button">See answer</button>
 
-<h2><%= @word.nombre %></h2>
-<h2><%= @word.largo %></h2>
+   <div class="hide-definition" "><%= @word.definicion %></div>
+
+</center>
