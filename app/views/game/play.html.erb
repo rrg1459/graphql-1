@@ -5,11 +5,27 @@
 <%= @word.nombre %>
 <%= @word.largo %>
 </h2>
+
+<div id="word" data-word="<%= @word.nombre %>"></div>
+
 <center>
   <h2><%= @spell_word %></h2>
   <h2><%= @array_word %></h2>
 
+<%= form_with do |form| %>
+  <% @word.largo.times do |num| %>
+  <%= num %> 
+    <!-- id has to be nil to prevent clashes as all fields would have the same id -->
+    <%= form.text_field @array_word[num], id: "letter-#{num}", class: "letter" %> 
+    <%#= form.text_field :letter, id: nil, class: "letter" %> 
+    <%#= form.text_field nil, id: nil, placeholder: "_" %> 
+  <% end %>
+  <%#= form.submit %>
+<% end %>
+<br>
+
   <button id="answer" type="button">See answer</button>
+  <br><br>
 
    <div class="hide-definition" "><%= @word.definicion %></div>
 
