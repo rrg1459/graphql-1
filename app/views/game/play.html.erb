@@ -11,21 +11,15 @@
 
 <center>
 
-<%= form_with do |form| %>
-  <div id="letters">
-    <% @word.largo.times do |num| %>
-    <%#= num %> 
-      <%#= form.text_field @array_word[num], id: "letter-#{num}", class: "letter" %> 
-      <button id=<%= "letter-#{num}" %> type="button" class="mr-2 btn btn-outline-secondary">_</button>
-    <% end %>
-  </div>
-  <%#= form.submit %>
-<% end %>
-<br>
+  <% @word.largo.times do |num| %>
+    <button id=<%= "letter-#{num}" %> type="button" class="mr-2 btn btn-outline-secondary">_</button>
+  <% end %>
+    
+  <br><br>
 
   <button id="answer" type="button">See answer</button>
   <br><br>
 
-   <div class="hide-definition" "><%= @word.definicion %></div>
+  <div class="hide-definition" "><%= @word.definicion %></div>
 
 </center>
