@@ -1,16 +1,15 @@
 <h1>Game#play</h1>
 <p>Find me in app/views/game/play.html.erb</p>
 
-<h2>
+<h3><i>
+<div class="ml-4">
 <%= @word.nombre %>
-<%= @word.largo %>
-</h2>
+</div>
+</i></h3>
 
 <div id="word" data-word="<%= @word.nombre %>"></div>
 
 <center>
-  <h2><%= @spell_word %></h2>
-  <h2><%= @array_word %></h2>
 
 <%= form_with do |form| %>
   <div id="letters">
