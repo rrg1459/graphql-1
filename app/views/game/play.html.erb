@@ -13,13 +13,13 @@
   <h2><%= @array_word %></h2>
 
 <%= form_with do |form| %>
-  <% @word.largo.times do |num| %>
-  <%= num %> 
-    <!-- id has to be nil to prevent clashes as all fields would have the same id -->
-    <%= form.text_field @array_word[num], id: "letter-#{num}", class: "letter" %> 
-    <%#= form.text_field :letter, id: nil, class: "letter" %> 
-    <%#= form.text_field nil, id: nil, placeholder: "_" %> 
-  <% end %>
+  <div id="letters">
+    <% @word.largo.times do |num| %>
+    <%#= num %> 
+      <%#= form.text_field @array_word[num], id: "letter-#{num}", class: "letter" %> 
+      <button id=<%= "letter-#{num}" %> type="button" class="mr-2 btn btn-success">_</button>
+    <% end %>
+  </div>
   <%#= form.submit %>
 <% end %>
 <br>
