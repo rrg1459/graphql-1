@@ -12,14 +12,39 @@
 <center>
 
   <% @word.largo.times do |num| %>
-    <button id=<%= "letter-#{num}" %> type="button" class="mr-2 btn btn-outline-secondary">_</button>
+    <input id=<%= "letter-#{num}" %> type="text" class="mr-2 btn btn-outline-secondary" size="1" onclick="toTheEnd(this)" onkeyup="validate(this);"/>
   <% end %>
-    
+
   <br><br>
 
-  <button id="answer" type="button">See answer</button>
+  <button id="answer" type="button" class="btn btn-success">See answer</button>
+  <button id="reset" type="button" class="btn btn-warning">Reset letters</button>
   <br><br>
 
-  <div class="hide-definition" "><%= @word.definicion %></div>
+   <div class="hide-definition" "><%= @word.definicion %></div>
 
 </center>
+
+
+<script type="text/javascript">
+
+
+// // const collection = document.getElementsByClass("letter").addEventListener("click", onFocusValue);
+// const xxx = document.getElementsByClassName("letter").addEventListener("click", onFocusValue);
+
+
+// function  onFocusValue () {
+//       this.setSelectionRange(0, 0);
+//     }
+// input.value = input.value.replace(/\W|\d/g, '').substr(0, 1).toUpperCase();
+
+
+// [^abcdefghijklmnñopqrstuvwxyzáéíóúABCDEFGHIJKLMNÑOPQRSTUVWXYZ ]/, ' ').squish.downcase
+    // text  = text.gsub(/[^abcdefghijklmnñopqrstuvwxyzáéíóúABCDEFGHIJKLMNÑOPQRSTUVWXYZ ]/, ' ').squish.downcase
+
+</script>
+
+<%# https://stackoverflow.com/questions/13577951/javascript-to-let-user-to-enter-only-single-character %>
+
+
+<%# https://es.stackoverflow.com/questions/62224/ubicar-cursor-al-inicio-de-un-input-tras-evento-focus %>
