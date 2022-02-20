@@ -1,12 +1,5 @@
-<h1>Game#play</h1>
-<p>Find me in app/views/game/play.html.erb</p>
 
-<h3><i>
-<div class="ml-4">
-<%= @word.nombre %>
-</div>
-</i></h3>
-
+<br><br><br><br>
 <div id="word" data-word="<%= @word.nombre %>"></div>
 
 <center>
@@ -17,34 +10,25 @@
 
   <br><br>
 
-  <button id="answer" type="button" class="btn btn-success">See answer</button>
-  <button id="reset" type="button" class="btn btn-warning">Reset letters</button>
+  <div class="d-flex" style="justify-content: center;">
+    <button id="answer" type="button" class="btn btn-success mr-3">See answer</button>
+    <button id="reset" type="button" class="btn btn-warning mr-3">Reset letters</button>
+    <%= button_to "Change word", root_path, class: 'btn btn-info' , method: :get %>
+  </div>
   <br><br>
 
-   <div class="hide-definition" "><%= @word.definicion %></div>
+  <div class="hide-definition" ">
+      <h3><i>
+        <div class="ml-4">
+          <%= @word.nombre %>
+        </div>
+      </i></h3>
+      <%= @word.definicion %>.
+  </div>
 
 </center>
 
-
-<script type="text/javascript">
-
-
-// // const collection = document.getElementsByClass("letter").addEventListener("click", onFocusValue);
-// const xxx = document.getElementsByClassName("letter").addEventListener("click", onFocusValue);
-
-
-// function  onFocusValue () {
-//       this.setSelectionRange(0, 0);
-//     }
-// input.value = input.value.replace(/\W|\d/g, '').substr(0, 1).toUpperCase();
-
-
-// [^abcdefghijklmnñopqrstuvwxyzáéíóúABCDEFGHIJKLMNÑOPQRSTUVWXYZ ]/, ' ').squish.downcase
-    // text  = text.gsub(/[^abcdefghijklmnñopqrstuvwxyzáéíóúABCDEFGHIJKLMNÑOPQRSTUVWXYZ ]/, ' ').squish.downcase
-
-</script>
-
-<%# https://stackoverflow.com/questions/13577951/javascript-to-let-user-to-enter-only-single-character %>
-
-
-<%# https://es.stackoverflow.com/questions/62224/ubicar-cursor-al-inicio-de-un-input-tras-evento-focus %>
+<br><br>
+<%#= button_to "Go to dictionary", diccionarios_path, method: :get %>
+<br>
+<%#= button_to "Analyze text", analiza_lee_path, method: :get %>

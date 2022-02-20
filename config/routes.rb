@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
-  get 'game/play'
-  root 'diccionarios#index'
-
+  root 'game#play'
+  # root 'diccionarios#index'
+  
   resources :diccionarios
-
+  
+  get 'game/play'
   get 'analiza/lee'
   post '/procesa', to: 'analiza#procesa'
   get '/update', to: 'analiza#update'

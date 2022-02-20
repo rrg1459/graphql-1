@@ -1,0 +1,219 @@
+// This file is automatically compiled by Webpack, along with any other files
+// present in this directory. You're encouraged to place your actual application logic in
+// a relevant structure within app/javascript and only use these pack files to reference
+// that code so it'll be compiled.
+
+import Rails from "@rails/ujs"
+import Turbolinks from "turbolinks"
+import * as ActiveStorage from "@rails/activestorage"
+import "channels"
+
+Rails.start()
+Turbolinks.start()
+ActiveStorage.start()
+
+//-------------------------------------------------------//
+
+import $ from 'jquery';
+global.$ = jQuery;
+
+//-------------------------------------------------------//
+
+$(document).ready(function () {
+
+
+
+  if (document.getElementById("letter-0")) {
+
+    console.log('ddddd')
+
+    document.getElementById("letter-0").focus();
+    document.getElementById("letter-0").setSelectionRange(1, 1);
+  }
+  const word = $('#word').data('word').split('');
+  // console.log("🚀 ~ file: application.js ~ line 27 ~ word", word)
+  // const xx = word.split
+  const large = word.length;
+  const letters = new Array(large).fill('');
+
+  const elem = document.activeElement;
+  // console.log('elem', elem)
+  console.log('letters---->', letters)
+
+
+
+  function validate(input) {
+    // console.log("🚀 ~ input: ", input.keyCode || input.which)
+    const pos = parseInt(input.id.split('-')[1]);
+    // console.log("🚀 ~ pos: ", pos)
+    const large = input.value.length
+    let letter = '';
+    if (large === 1) {
+      letter = input.value.replace(/[^abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ ]/g, '')
+    } else {
+      letter = input.value.split('')[0]
+      const lastLetter = input.value.split('').slice(-1).join().replace(/[^abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ ]/g, '')
+      if (lastLetter !== '') letter = lastLetter;
+    }
+    letters[pos] = letter.toLowerCase();
+    if (input.value !== '') input.value = letter.toUpperCase();
+    input.setSelectionRange(1, 1);
+    analize(pos);
+    // recorre();
+    changeFocus();
+  }
+  window.validate = validate;
+
+  function changeFocus() {
+    let num = Number(document.activeElement.id.split('-')[1]);
+    num == (large - 1) ? num = 0 : num++;
+    // console.log('active: ', num);
+    // console.log('active: ', large);
+    $('#letter-' + num).focus();
+    document.activeElement.setSelectionRange(1, 1);
+  }
+
+  function toTheEnd(input) {
+    input.setSelectionRange(1, 1);
+  }
+  window.toTheEnd = toTheEnd;
+
+  // console.log('large: ', large);
+  // console.log('word: ', word);
+
+  function analize(pos) {
+
+    // console.log('word: ', word);
+    // console.log('word: ', word.join(''));
+    // console.log('letters: ', letters);
+    // console.log('letters: ', letters.join(''));
+    // console.log('pos: ', pos);
+    const letter = letters[pos];
+    if (word.join('') === letters.join('')) {
+      $('#letter-' + pos).css('background', '#00FF00'); // white
+      return alert('You Win!!!');
+    }
+
+    if (word[pos] === letter) {
+      $('#letter-' + pos).css('background', '#00FF00'); // green
+
+
+
+      for (let step = 0; step < large; step++) {
+        // if (pos !== step && word[pos] !== letters[step] && letters[step] === letter) {
+        // if (letters[step] !== '' && pos !== step && letters[step] !== word[step] && letters[step] === letter) {
+        if (letters[step] !== '' && letters[step] !== word[step] && letters[step] === letter) {
+          // if (pos !== step && letters[step] === letter) {
+
+          console.log('----x----');
+          console.log("🚀 ~ file: application.js ~ line 101 ~ analize ~ step", step)
+          console.log("🚀 ~ file: application.js ~ line 103 ~ analize ~ pos", pos)
+          console.log("🚀 ~ file: application.js ~ line 105 ~ analize ~ letter", letter)
+          console.log("🚀 ~ file: application.js ~ line 105 ~ analize ~ word[step]", word[step])
+
+          const totalWord = word.filter(x => x == letter).length
+          const totalLetters = letters.filter(x => x == letter).length
+          // if (totalLetters > totalWord) {
+          // if (totalLetters > totalWord && letters[step] !== letter) {
+          //
+          // OJO XXX
+          // aqui falta algo mas caso de ejemplo C A A A
+          //
+          $('#letter-' + step).css('background', '#CCCCCC'); // gray
+          // } else {
+          //   $('#letter-' + step).css('background', '#F90000'); // red
+          // }
+
+          // $('#letter-' + step).css('background', '#CCCCCC'); // gray
+          break;
+        }
+      }
+
+
+
+
+
+
+    } else if (word.includes(letter)) {
+      // console.log('pos_______________: ', pos);
+      // console.log(letter);
+      // console.log(letters);
+      const totalWord = word.filter(x => x == letter).length
+      const totalLetters = letters.filter(x => x == letter).length
+      let greens = 0;
+      for (let step = 0; step < large; step++) {
+        if (word[step] !== '' && word[step] === letters[step]) {
+          greens++;
+        }
+      }
+      // console.log("🚀 ~ file: application.js ~ line 115 ~ analize ~ totalLetters", totalLetters)
+      // console.log("🚀 ~ file: application.js ~ line 124 ~ analize ~ greens", greens)
+      // console.log("🚀 ~ file: application.js ~ line 124 ~ analize ~ totalWord", totalWord)
+      if (totalLetters > totalWord) {
+        $('#letter-' + pos).css('background', '#CCCCCC'); // gray
+      } else {
+        $('#letter-' + pos).css('background', '#F90000'); // red
+      }
+    } else if (letters[pos] === '') {
+      $('#letter-' + pos).css('background', '#FFFFFF'); // white
+    } else {
+      $('#letter-' + pos).css('background', '#CCCCCC'); // gray
+    }
+
+  }
+
+  // function recorre() {
+  //   console.log('word: ', word);
+  //   console.log('letters: ', letters);
+  //   for (let step = 0; step < large; step++) {
+  //     let xx = $('#letter-' + step);
+  //     letters[step] = xx[0].value.toLowerCase();
+  //   }
+
+  //   for (let step = 0; step < large; step++) {
+  //     let xx = $('#letter-' + step);
+  //     if (word[step] === letters[step]) {
+  //       $('#letter-' + step).css('background', '#00FF00'); // green
+  //       // console.log("🚀 ~~ step", step)
+  //       // console.log("🚀 ~~ word", word[step])
+  //       // console.log("🚀 ~~ letters", letters[step])
+  //       // } else if (word.includes(letters[step]) && word[step] === letters[step]) {
+  //       // } else if (word.includes(letters[step]) || word[step] === letters[step]) {
+  //     } else if (word.includes(letters[step])) {
+  //       $('#letter-' + step).css('background', '#F90000'); // red
+  //     } else if (letters[step] === '') {
+  //       $('#letter-' + step).css('background', '#FFFFFF'); // white
+  //     } else {
+  //       $('#letter-' + step).css('background', '#CCCCCC'); // gray
+  //     }
+  //   }
+
+  //   // console.log('letters join: ', letters.join(''));
+  // }
+
+  $("#answer").click(function () {
+    $(".hide-definition").fadeIn();
+  });
+
+  $("#reset").click(function () {
+    for (let step = 0; step < large; step++) {
+      $('#letter-' + step)[0].value = '';
+      letters[step] = '';
+      // $('#letter-' + step).value = 'h';
+      $('#letter-' + step).css('background', '#FFFFFF'); // red
+    }
+    document.getElementById("letter-0").focus();
+  });
+
+  // $("#reset").click(function () {
+  //   for (let step = 0; step < large; step++) {
+  //     $('#letter-' + step)[0].value = '';
+  //     $('#letter-' + step).css('background', '#FFFFFF'); // red
+  //   }
+  //   document.getElementById("letter-0").focus();
+  // });
+
+});
+
+$(document).on('turbolinks:load', function () {
+});
