@@ -31,10 +31,10 @@ $(document).ready(function () {
     const large = input.value.length
     let letter = '';
     if (large === 1) {
-      letter = input.value.replace(/[^abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ ]/g, '')
+      letter = input.value.replace(/[^abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚ ]/g, '')
     } else {
       letter = input.value.split('')[0]
-      const lastLetter = input.value.split('').slice(-1).join().replace(/[^abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ ]/g, '')
+      const lastLetter = input.value.split('').slice(-1).join().replace(/[^abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚ ]/g, '')
       if (lastLetter !== '') letter = lastLetter;
     }
     letters[pos] = letter.toLowerCase();
