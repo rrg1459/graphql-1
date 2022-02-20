@@ -2,6 +2,8 @@ palabras = [["adunco", "adjetivo", "adj.", "arqueado", 6, 1], ["antes", "adverbi
 
 # (:nombre, :tipo, :abreviacion, :Definicion, :largo, :promedio)
 
+Diccionario.all.delete_all
+
 palabras.each do |palabra|
   Diccionario.create(nombre: palabra[0][0], tipo: palabra[0][1], abreviacion: palabra[0][2], Definicion: palabra[0][3], largo: palabra[0][4], promedio: palabra[0][5])
  end
