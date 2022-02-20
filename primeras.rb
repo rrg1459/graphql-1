@@ -15,4 +15,3 @@ palabras.each do |palabra|
 # puts palabra[0][4]
 # puts palabra[0][5]
 # 
-
