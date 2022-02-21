@@ -5,15 +5,15 @@
 <center>
 
   <% @word.largo.times do |num| %>
-    <input id=<%= "letter-#{num}" %> type="text" class="mr-2 btn btn-outline-secondary" size="1" onclick="toTheEnd(this)" onkeyup="validate(this);"/>
+    <input id=<%= "letter-#{num}" %> type="text" class="mr-2 btn btn-xs btn-outline-secondary" size="1" onclick="toTheEnd(this)" onkeyup="validate(this);"/>
   <% end %>
 
   <br><br>
 
   <div class="d-flex" style="justify-content: center;">
-    <button id="answer" type="button" class="btn btn-success mr-3">See answer</button>
-    <button id="reset" type="button" class="btn btn-warning mr-3">Reset letters</button>
-    <%= button_to "Change word", root_path, class: 'btn btn-info' , method: :get %>
+    <button id="answer" type="button" class="btn btn-sm btn-success mr-3">See answer</button>
+    <button id="reset" type="button" class="btn btn-sm btn-warning mr-3">Reset letters</button>
+    <%= button_to "Change word", root_path, class: 'btn btn-sm btn-info' , method: :get %>
   </div>
   <br><br>
 
@@ -32,3 +32,12 @@
 <%#= button_to "Go to dictionary", diccionarios_path, method: :get %>
 <br>
 <%#= button_to "Analyze text", analiza_lee_path, method: :get %>
+
+<style>
+.btn-group-xs > .btn, .btn-xs {
+  padding: .25rem .4rem;
+  font-size: .875rem;
+  line-height: .5;
+  border-radius: .2rem;
+}
+</style>
