@@ -5,7 +5,7 @@
 <center>
 
   <% @word.largo.times do |num| %>
-    <input id=<%= "letter-#{num}" %> type="text" class="mr-1 btn btn-xs btn-outline-secondary" size="1" onclick="toTheEnd(this)" onkeyup="validate(this);"/>
+    <input id=<%= "letter-#{num}" %> type="text" class="mr-1 px-1 btn btn-xs btn-outline-secondary" size="1" onclick="toTheEnd(this)" onkeyup="validate(this);"/>
   <% end %>
 
   <br><br>
