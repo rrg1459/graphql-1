@@ -5,7 +5,7 @@
 <center>
 
   <% @word.largo.times do |num| %>
-    <input id=<%= "letter-#{num}" %> type="text" class="mr-2 btn btn-xs btn-outline-secondary" size="1" onclick="toTheEnd(this)" onkeyup="validate(this);"/>
+    <input id=<%= "letter-#{num}" %> type="text" class="mr-1 btn btn-xs btn-outline-secondary" size="1" onclick="toTheEnd(this)" onkeyup="validate(this);"/>
   <% end %>
 
   <br><br>
@@ -32,12 +32,3 @@
 <%#= button_to "Go to dictionary", diccionarios_path, method: :get %>
 <br>
 <%#= button_to "Analyze text", analiza_lee_path, method: :get %>
-
-<style>
-.btn-group-xs > .btn, .btn-xs {
-  padding: .25rem .4rem;
-  font-size: .875rem;
-  line-height: .5;
-  border-radius: .2rem;
-}
-</style>
