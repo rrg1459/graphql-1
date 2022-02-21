@@ -1,20 +1,36 @@
-
-<br><br><br><br>
+<br><br>
 <div id="word" data-word="<%= @word.nombre %>"></div>
 
 <center>
+
+  <table>
+    <tr>
+      <td><button type="button" class="btn btn-sm btn-green mb-1 mr-3 ">A</button></td>
+      <td>Letra SI, sitio SI</td>
+    </tr>
+    <tr>
+      <td><button type="button" class="btn btn-sm btn-red mr-3 my-1 ">B</button></td>
+      <td>Letra SI, sitio NO</td>
+    </tr>
+    <tr>
+    <td><button type="button" class="btn btn-sm btn-gray mt-1 mr-3 ">C</button></td>
+    <td>Letra NO, sitio NO</td>
+    </tr>
+  </table>
+  <br><br>
 
   <% @word.largo.times do |num| %>
     <input id=<%= "letter-#{num}" %> type="text" class="mr-1 px-1 btn btn-xs btn-outline-secondary" size="1" onclick="toTheEnd(this)" onkeyup="validate(this);"/>
   <% end %>
 
-  <br><br>
+  <br><br><br>
 
   <div class="d-flex" style="justify-content: center;">
-    <button id="answer" type="button" class="btn btn-sm btn-success mr-3">See answer</button>
-    <button id="reset" type="button" class="btn btn-sm btn-warning mr-3">Reset letters</button>
-    <%= button_to "Change word", root_path, class: 'btn btn-sm btn-info' , method: :get %>
+    <%# <button id="answer" type="button" class="btn btn-sm btn-success mr-3">See answer</button> %>
+    <button id="reset" type="button" class="btn btn-sm btn-warning mr-3">Limpia</button>
+    <%= button_to "Cambia", root_path, class: 'btn btn-sm btn-info' , method: :get %>
   </div>
+
   <br><br>
 
   <div class="hide-definition" ">
