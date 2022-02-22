@@ -16,13 +16,13 @@ global.$ = jQuery;
 
 $(document).ready(function () {
   if (document.getElementById("letter-0")) {
-    document.getElementById("letter-0").focus();
     document.getElementById("letter-0").setSelectionRange(1, 1);
+    document.getElementById("letter-0").focus();
     // document.activeElement.
     // document.activeElement.vir
     // window.prompt();
     // document.prompt();
-    document.visualViewport;
+    // document.visualViewport;
     // window.visualViewport
     // window.VisualViewport
   }
@@ -60,18 +60,18 @@ $(document).ready(function () {
       num == (large - 1) ? num = 0 : num++;
       if ($('#letter-' + num).is(':enabled')) {
         // $('#letter-' + num).focus();
+        document.activeElement.setSelectionRange(1, 1);
         $('#letter-' + num).trigger("focus");
         // window.prompt();
         // document.prompt();
-        document.visualViewport;
+        // document.visualViewport;
 
-        break
+        return
       }
       // console.log('large:', large)
       // console.log('num:', num)
       if (cont > large) break;
     }
-    document.activeElement.setSelectionRange(1, 1);
   }
 
   function toTheEnd(input) {
