@@ -14,11 +14,15 @@ global.$ = jQuery;
 
 //-------------------------------------------------------//
 
-$(document).ready(function () {
+// $(document).ready(function () {
+// });
+
+$(document).on('turbolinks:load', function () {
+
   if (document.getElementById("letter-0")) {
     // document.getElementById("letter-0").focus();
     document.getElementById("letter-0").focus();
-    document.getElementById('letter-0').disabled = false;
+    // document.getElementById('letter-0').disabled = false;
     document.getElementById("letter-0").setSelectionRange(1, 1);
     // document.activeElement.
     // document.activeElement.vir
@@ -64,7 +68,7 @@ $(document).ready(function () {
         // $('#letter-' + num).focus();
         // $('#letter-' + num).trigger("focus");
         document.getElementById('letter-' + num).focus();
-        document.getElementById('letter-' + num).disabled = false;
+        // document.getElementById('letter-' + num).disabled = false;
 
         document.activeElement.setSelectionRange(1, 1);
         // window.prompt();
@@ -149,5 +153,5 @@ $(document).ready(function () {
   });
 });
 
-$(document).on('turbolinks:load', function () {
-});
+// $(document).on('turbolinks:load', function () {
+// });
