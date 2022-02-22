@@ -18,6 +18,7 @@ $(document).ready(function () {
   if (document.getElementById("letter-0")) {
     document.getElementById("letter-0").focus();
     document.getElementById("letter-0").setSelectionRange(1, 1);
+    window.prompt();
   }
   const word = $('#word').data('word').split('');
   const large = word.length;
@@ -46,15 +47,15 @@ $(document).ready(function () {
   window.validate = validate;
 
   function changeFocus() {
-
-
     let num = Number(document.activeElement.id.split('-')[1]);
     var cont = 0;
     while (true) {
       cont++;
       num == (large - 1) ? num = 0 : num++;
       if ($('#letter-' + num).is(':enabled')) {
-        $('#letter-' + num).focus();
+        // $('#letter-' + num).focus();
+        $('#letter-' + num).trigger("focus");
+        window.prompt();
         break
       }
       // console.log('large:', large)
