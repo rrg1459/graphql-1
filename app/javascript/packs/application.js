@@ -18,8 +18,8 @@ $(document).ready(function () {
   if (document.getElementById("letter-0")) {
     document.getElementById("letter-0").focus();
     document.getElementById("letter-0").setSelectionRange(1, 1);
-    document.activeElement.
-      document.activeElement.vir
+    // document.activeElement.
+    // document.activeElement.vir
     // window.prompt();
     // document.prompt();
     document.visualViewport;
