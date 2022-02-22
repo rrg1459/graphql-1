@@ -18,7 +18,13 @@ $(document).ready(function () {
   if (document.getElementById("letter-0")) {
     document.getElementById("letter-0").focus();
     document.getElementById("letter-0").setSelectionRange(1, 1);
-    window.prompt();
+    document.activeElement.
+      document.activeElement.vir
+    // window.prompt();
+    // document.prompt();
+    document.visualViewport;
+    // window.visualViewport
+    // window.VisualViewport
   }
   const word = $('#word').data('word').split('');
   const large = word.length;
@@ -55,7 +61,10 @@ $(document).ready(function () {
       if ($('#letter-' + num).is(':enabled')) {
         // $('#letter-' + num).focus();
         $('#letter-' + num).trigger("focus");
-        window.prompt();
+        // window.prompt();
+        // document.prompt();
+        document.visualViewport;
+
         break
       }
       // console.log('large:', large)
