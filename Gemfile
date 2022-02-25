@@ -65,3 +65,5 @@ gem 'bootstrap',        '~> 4.3'  # The most popular HTML, CSS, and JavaScript f
 
 gem "graphql", "~> 2.0"
 gem "graphiql-rails", "~> 1.8", group: :development
+
+gem "rack-cors", "~> 1.1"
