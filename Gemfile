@@ -62,3 +62,6 @@ gem 'socksify',         '~> 1.7'  # Redirect all TCPSockets through a SOCKS5 pro
 
 gem 'will_paginate'
 gem 'bootstrap',        '~> 4.3'  # The most popular HTML, CSS, and JavaScript framework for developing responsive, mobile first projects on the web. http://getbootstrap.com
+
+gem "graphql", "~> 2.0"
+gem "graphiql-rails", "~> 1.8", group: :development

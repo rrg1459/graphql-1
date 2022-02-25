@@ -93,6 +93,10 @@ GEM
     ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    graphiql-rails (1.8.0)
+      railties
+      sprockets-rails
+    graphql (2.0.1)
     http-cookie (1.0.4)
       domain_name (~> 0.5)
     i18n (1.9.1)
@@ -253,6 +257,8 @@ DEPENDENCIES
   bootstrap (~> 4.3)
   byebug
   capybara (>= 3.26)
+  graphiql-rails (~> 1.8)
+  graphql (~> 2.0)
   jbuilder (~> 2.7)
   listen (~> 3.3)
   mechanize (~> 2.7)
