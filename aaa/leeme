@@ -59,4 +59,8 @@ este otro método dentroi de la clase  class Application < Rails::Application
 
 Verificar que se puede ver graphql con Altair y su equivalente en heroku
 
+http://localhost:3000/graphql
 
+https://monograma.herokuapp.com/graphql
+
+------------------------------------
